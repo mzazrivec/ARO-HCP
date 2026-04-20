@@ -33,6 +33,13 @@ az network vnet create \
   --subnet-prefixes 10.0.0.0/24 \
   --nsg "${NSG_ID}"  --location ${LOCATION}
 
+az network vnet subnet create \
+  --name "${CUSTOMER_INT_VNET_SUBNET1}" \
+  --vnet-name "${CUSTOMER_VNET_NAME}" \
+  --resource-group "${CUSTOMER_RG_NAME}" \
+  --address-prefixes 10.0.100.0/24 \
+  --delegations $linked_resource_type
+
 if $SWIFT; then
   az network vnet subnet create \
     --name "${CUSTOMER_VNET_PODNETWORK1}" \

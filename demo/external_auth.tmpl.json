@@ -1,0 +1,40 @@
+ {
+   "properties": {
+     "provisioningState": "",
+     "issuer": {
+       "url": "https://login.microsoftonline.com/${TENANT_ID}/v2.0",
+       "audiences": [
+         "${APP_ID}"
+       ],
+       "ca": ""
+     },
+     "clients": [
+       {
+         "component": {
+           "name": "console",
+           "authClientNamespace": "openshift-console"
+         },
+         "clientId": "${APP_ID}",
+         "extraScopes": [
+           "openid",
+           "profile"
+         ],
+         "type": "Confidential"
+       }
+     ],
+     "claim": {
+       "mappings": {
+         "username": {
+           "claim": "oid",
+           "prefix": "",
+           "prefixPolicy": "NoPrefix"
+         },
+         "groups": {
+           "claim": "groups",
+           "prefix": ""
+         }
+       },
+       "validationRules": []
+     }
+   }
+ }

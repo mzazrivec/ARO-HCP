@@ -20,8 +20,9 @@
         "customerManaged": {
           "encryptionType": "KMS",
           "kms": {
+            "vaultName": "customer-kv",
+            "visibility": "Public",
             "activeKey": {
-              "vaultName": "customer-kv",
               "name": "etcd-encryption-key-name",
               "version": "etcd-encryption-key-version"
             }
@@ -38,6 +39,7 @@
     "platform": {
       "managedResourceGroup": "$managed-resource-group",
       "subnetId": "/subscriptions/$sub/resourceGroups/$customer-rg/providers/Microsoft.Network/virtualNetworks/customer-vnet/subnets/customer-subnet-1",
+      "vnetIntegrationSubnetId": "/subscriptions/$sub/resourceGroups/$customer-rg/providers/Microsoft.Network/virtualNetworks/customer-vnet/subnets/integration-subnet-1",
       "outboundType": "LoadBalancer",
       "networkSecurityGroupId": "/subscriptions/$sub/resourceGroups/$customer-rg/providers/Microsoft.Network/networkSecurityGroups/customer-nsg",
       "operatorsAuthentication": {
